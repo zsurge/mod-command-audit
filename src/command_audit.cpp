@@ -50,7 +50,7 @@ namespace CommandAudit
         cfg.Exclude.clear();
         std::string excludeRaw = sConfigMgr->GetOption<std::string>(
             "CommandAudit.ExcludeCommands",
-            "gps,lookup,help,server info,server motd,appear,summon,pname,goname,namego,recall,modify speed,gps");
+            "gps,lookup,help,server info,server motd,appear,summon,pname,goname,namego,recall");
 
         std::string token;
         std::stringstream ss(excludeRaw);
