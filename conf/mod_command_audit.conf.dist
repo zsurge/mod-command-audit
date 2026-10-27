@@ -1,0 +1,53 @@
+############################################################
+# mod-command-audit configuration
+############################################################
+#
+# Audits chat/console/SOAP commands when the invoker account
+# security is >= CommandAudit.MinSecurity (default: GM = 2).
+# Player commands are NOT logged.
+#
+# Log file is written under LogsDir (see worldserver.conf).
+# Optional: also enable AC Appender for rotation, e.g.:
+#   Appender.CommandAudit=2,4,1,CommandAudit.log,a
+#   Logger.command.audit=4,CommandAudit
+#
+
+#
+#    CommandAudit.Enable
+#        Description: Enable command audit logging
+#        Default:     1
+#
+CommandAudit.Enable = 1
+
+#
+#    CommandAudit.MinSecurity
+#        Description: Minimum account security to log
+#                     0=Player 1=Moderator 2=GameMaster 3=Admin 4=Console
+#        Default:     2 (SEC_GAMEMASTER)
+#
+CommandAudit.MinSecurity = 2
+
+#
+#    CommandAudit.LogFile
+#        Description: File name under LogsDir
+#        Default:     "CommandAudit.log"
+#
+CommandAudit.LogFile = "CommandAudit.log"
+
+#
+#    CommandAudit.ExcludeCommands
+#        Description: Comma-separated command prefixes to skip (case-insensitive).
+#                     Matches exact first token path, e.g. "server info" skips
+#                     ".server info" but not ".server shutdown".
+#        Default:     noisy query / navigation helpers
+#
+CommandAudit.ExcludeCommands = "gps,lookup,help,server info,server motd,appear,summon,pname,goname,namego,recall"
+
+#
+#    CommandAudit.LogToDatabase
+#        Description: Reserved. When 1, future versions may write to
+#                     characters.command_audit_log (schema shipped as SQL).
+#                     NOT implemented yet — keep 0.
+#        Default:     0
+#
+CommandAudit.LogToDatabase = 0

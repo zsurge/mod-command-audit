@@ -1,0 +1,5 @@
+build/
+*.user
+*.suo
+.vs/
+conf/mod_command_audit.conf
